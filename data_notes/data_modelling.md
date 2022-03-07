@@ -40,7 +40,50 @@ C.I <- c(beta[i] + 1.96*sd[i],
 
 #### 1.2 model checking
 在取得相应参数的估计后，我们可以对参数的uncertainty 进行进一步testing. 一般来说， 参数对应的*sd*越大，代表这个参数的uncertainty越高, 从而需要我们对其的有效性进行进一步检验.
-Hypothesis test（）
+Hypothesis test(假设检验)目前有几个部分组成，分别是：
+- Z-test : ***Z～Normal（0，1）***，其中 *Z = (beta[i] - Np(null hypothesis)) / s.d[i]*. 因为Z follows **Standardized Normal Distribution**， 所以他的 **95%** 区间
+会处于 -1.96～1.96. 所以当 Z 值大于这个区间时， 则 Z 为 **Extreme Value**， 此时我们可以 **Reject** the null hypothesis.
+- P-value : 在Z-test 之上， 我们还可以应用P-value test， P-value 对应的是一个 Z 值是极值的***probability***， 在 R 中可以通过：
+
+```
+p_value <- 2*(pnorm(z_value, 0, 1))
+p_value <- 2*(1 - pnorm(z_stat, 0, 1)) #当Z值为负数时用 1 - Z
+```
+当 P-value 小于5% 时， 我们可以***reject*** the null hypothesis.
+
+检定完参数的uncertainty 之后， 我们可以就模型performance进行检定. 对于模型的优劣度， LRT（likelihoo ration test）会被应用于量化改程度：
+    
+    R = L1/L2
+    
+其中， R 的值决定了模型的好坏， if R > 1, 则 模型1 比 模型2 表现要好，vice versa，而 R 约等于 1 时则说明两个模型效果相似。需要注意的是，拥有更多参数的模型总是有更大的 R，所以当额外添加的参数不会太大的影响 R 值时， 这个参数的添加就没有太大的意义。 选出较好的模型后， 我们可以进行下一步的检验， 这次我们用一个 ***Satruated model(Ms)*** 来作为比较的对象。该模型只被应用于模型参数比较中， 没有其他的应用意义。***Saturated Model*** 的特征是它的预测值即等于**原值**， 而一般来说模型的预测值为**Expected value(E(p))**. 这样，我们可以得知：当比较模型与饱和模型的 likelihood 比值接近 *1* 时， 比较模型的拟合度很好。根据 likelihood 理论：
+
+> ***-2logR ~ X<sup>2</sup> <sub>(n - p)</sub>***
+其中 n = no. of data points , p = no. of parameter
+
+>即 ： ***-2logR = 2(logLMs - logLM)***， 其中 logLM = log(likelihood of model M). (1)
+
+基于这个理论，我们提出相对应的 **Hypothesis** :
+
+> ***H<sub>o</sub> (null hypnosis): M1 is as good as Ms***
+
+跟之前类似，如果得出的R 值超过了 -2logR 的 95% 区间， 则我们可以 **Reject** 对应的null hypothesis。
+对于 **Nested** 模型， 我们的也可以不使用*saturated model*对比的方法,而是：
+> ***-2logR ~ X<sup>2</sup> <sub>(p2 - p1)</sub>***    其中 p2/p1 = no of parameter of M1/M2
+
+同样的， 我们有：
+> ***H<sub>o</sub> (null hypnosis): M1 is as good as M2***
+
+总结：我们需要看LRT的值是否超出 X<sup>2</sup> 95% 的区间， 如果超出的话, 则 P-value < 0.05, **thus the null is rejected**.
+
+除了上述的方法外， 另外一个非常常用的方法是 ***AIC*** ：
+>***AIC = -2log(LM) + 2p*** , 其中LM = likelihood of Model.  p = no. of unknown parameter.
+
+AIC 的优势是更加通用， 不需要考虑模型是否nested. 通常来说，受测试模型的 AIC越小，该模型的 fitness 更高。
+
+
+
+
+
 
 
 
