@@ -38,7 +38,7 @@ C.I <- c(beta[i] + 1.96*sd[i],
 ```
 来求出模型的参数C.I,从而进行下一个process.
 
-#### 1.2 model checking
+### 1.2 model checking
 在取得相应参数的估计后，我们可以对参数的uncertainty 进行进一步testing. 一般来说， 参数对应的*sd*越大，代表这个参数的uncertainty越高, 从而需要我们对其的有效性进行进一步检验.
 Hypothesis test(假设检验)目前有几个部分组成，分别是：
 - Z-test : ***Z～Normal（0，1）***，其中 *Z = (beta[i] - Np(null hypothesis)) / s.d[i]*. 因为Z follows **Standardized Normal Distribution**， 所以他的 **95%** 区间
@@ -79,6 +79,14 @@ p_value <- 2*(1 - pnorm(z_stat, 0, 1)) #当Z值为负数时用 1 - Z
 >***AIC = -2log(LM) + 2p*** , 其中LM = likelihood of Model.  p = no. of unknown parameter.
 
 AIC 的优势是更加通用， 不需要考虑模型是否nested. 通常来说，受测试模型的 AIC越小，该模型的 fitness 更高。
+
+### 1.3 Predicting
+预测是一个复杂且困难的过程， 一般来说， 我们从一个***Probability distribution***中生成预测值：
+> ***Y<sub>i</sub>~p(theta<sub>i</sub>)***, 其中 Y 是一个 R.V, Theta 是模型参数的集合。
+一般情况下， Y 的值都不是确定的(uncertainty)。 基于此，最好的办法就是求 mu， 因为***mu = E[Y]***, 而另 E[Y] = Y-hat, 就可得到与真实值最接近的估计值 Y-hat。在本章的案例数据集中，我们可以基于估计得到的**模型参数** 来：
+- 
+
+
 
 
 
