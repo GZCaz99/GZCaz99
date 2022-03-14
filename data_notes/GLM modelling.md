@@ -72,7 +72,35 @@ GLM的模型fitness检验大致与上一章内容相符，稍微不同的点在�
 这部分也比较简单， 因为*φ* 已知所以不需要估计，案例操作如下：
 >![image](https://user-images.githubusercontent.com/89850899/157696318-85d119d8-52ce-4a3a-b12d-e4abc91890cb.png)
 
-当
+同样的，*P-value* < 0.05, 则***Reject*** the null hypothesis. 另外，当数据总数较小时，我们需要应用 ***Pearson residuals*** 来代替原来的 ***deviance residuals***， 具体操作参考下图：
+>![image](https://user-images.githubusercontent.com/89850899/157698260-3b559d0f-6350-47df-9fae-e1f7f74656a7.png)
+
+#### 2.3 Prediction
+使用模型预测的理论在上一章中已有介绍，一般来说步骤可以分为：
+
+- 1，Plot ***模型对应的*** Response variable 和 Covariate（plot1）
+- 2，建立一个用于预测的 ***Covariate*** 向量/区间
+- 3，应用R中的 *predict* 生成对于 ***Response variable*** 的预测值(type = response)
+- 4，将2，3中建立/预测到的 variable值 plot 出并插入 1. 的plot 中， 可查看模型贴合程度
+- 5，再次应用R中的 *predict* ， 但这次生成对于 ***linear predictor*** 的预测值(type = link)
+- 6，对于5. 中得到的预测值建立对应的 C.I, 并将 C.I 代回 invert logit function 得出最后的 Upper/Lower limit
+- 7，将6. 中得到的limit 和 3,中使用的值分别plot出预测的 Upper/Lower limit 并插入 plot 1。 这样，我们最终得到了预测出的*E(x)*的平均值以及它的C.I
+- 8, 现在我们可以利用3，中得到的值来进行 P.I 及其Upper/Lower limit的建立。在这里首先我们 Plot ***数据*** 的Response variable 和 Covariate（plot 8）
+- 9，有了3，中的预测值，它现在就是我们数据的***Predict distribution***，根据数据分布类型的不同，它可以是***Respons Variable***的 平均值 或是 某些数据中代表的***事件发生的概率***，这取决于数据的分布类型，不同类型分布有不同的 E（x） function. 在本案例中， binomial distribution 有 **E[x] = np**,所以这里的预测值为 *p*. 我们这里将E[x]plot出并插入plot 8 中， 这里使用的 x input仍是 3,
+-10， 这次，对于***Predict distribution*** 的对应的 ***P.I*** 建立，我们需要考虑到原数据的分布类型，对与本次的BInomial 分布数据，我们使用：![image](https://user-images.githubusercontent.com/89850899/158026091-790175c5-9869-4365-ab98-ff51713a834e.png) 
+
+来模拟数据分布情况，以及求出 P.I 的区间， 最后将这几条线plot在 8，的图中，就可以得到最终的预测结果。
+#### 2.4 Residual Checking
+除了之前提到的几个模型检查的理论之外， 模型表现也可以通过检查对应的 Residual 分布来评判。 一般来说， 任意模型的 Residual plot 有以下几张图：
+> ![image](https://user-images.githubusercontent.com/89850899/158196154-3f3906cc-2616-437b-a542-760ca1cb5aa2.png)
+
+其中， 左上角为 ***Deviance Residual vs Fitted***， 如果一个模型的表现良好，图中的点应随机，均匀分布在 0 周围。而如果点呈 *漏斗状*分布， 则表明数据的方差大于模型包括的， 如果还有其他的明显的分布趋势， 我们则需要考虑调整模型中的 *covariate* 或者 其他高阶模型（当数据是Binary分布时则不需要过多关注）。 接下来是右上角的 ***Q-Q*** plot, 它可以用来判定模型的 Residual 是否属于正态分布，如果是，则图中点会沿图中虚线分布， 如果有其他的系统性分布，则说明我们的模型有问题。左下角的图本质上与左上角的没有区别，我们这里跳过。最后一张是***Residual vs Leverage***，这张图展现了数据中的***极值***， 它为我们移除一些数据集中不合适的数据提供了帮助， 但并不应该只基于这张图来剔除数据。
+
+
+
+
+ 
+
 
 
 
