@@ -12,7 +12,15 @@
 ### 1.1, Intro
 由GLM扩展而来， 结合上述的定义， 一个加性模型的通常形式为：
 >![image](https://user-images.githubusercontent.com/89850899/159052904-9d0cbac0-830e-4282-8efb-8e77deaf9f68.png)
-其中 x = (z, x1, . . . , xp), z 是。linear predictor, fj(·)是smooth function
+其中 x = (z, x1, . . . , xp), z,是linear predictor, fj(·)是smooth function
+
+一个简单的例子：假如我们想要调查某个connty在温度低于5度时的平均用水需求，在掌握了相关的数据后， 一个简易Additional模型可为；
+>![image](https://user-images.githubusercontent.com/89850899/159053991-3e963a19-6061-4bf5-83a9-3b0bf593bbc7.png)
+>其中，当温度高于/低于 5度时， 对应的 z = 0/1, f(x) 为smooth functiofunction，它允许了在除了已经应用covariate之外的response factor的波动， 从而能够给出我们一些潜在的取样建议。
+
+在加性模型中，我们需要特别关注对应smooth function的应用， 以及它的smooth程度。在R中通过应用**penalized regression splines** 来表示smooth function， 从而对基于数据进行**cross validation** 来得出合适的smooth程度。
+
+
 
 
 
