@@ -12,6 +12,8 @@
 ### 1.1, Intro
 由GLM扩展而来， 结合上述的定义， 一个加性模型的通常形式为：
 >![image](https://user-images.githubusercontent.com/89850899/159052904-9d0cbac0-830e-4282-8efb-8e77deaf9f68.png)
+其中 x = (z, x1, . . . , xp), z 是。linear predictor, fj(·)是smooth function
+
 
 
 
