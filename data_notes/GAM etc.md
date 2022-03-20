@@ -59,8 +59,22 @@ GAM 在R中的应用基本上与GLM一致，一开始的模型参数指定：
 - 右下角的 response (Yi) versus the fitted/predicted values (Yˆi)，它与第一张图基本一致，对于一个合适的模型，残差点应沿斜线分布。
 
 
-在残差图之外，我们还有
+在残差图之外，我们还有一个对于模型中所应用的smooth function 的结果总结：
+- k', 即k-1
+- edf,它的值表示了在设定的参数中真正被应用于smmothing的参数数量，即最终被用来确定数据关系/贴合模型需要的参数数量。一个常用的点是，当k‘与edf的值相差小于1时，说明我们需要增加k值（模型自由度）
+- k-index/p-value, 这两个数值不是正式test，但仍给了我们对应的建议。当k-index/p-value 分别 小于1/数值很小 时，我们可能需要考虑增加k的数量。 它们不属于正式的检测，所以即使他们的数值建议我们增加k，我们也可根据前面的其他检测结果来证明模型的合理性。
 
+在确定了k和其他一些设定后，我们可以进行LRT，通过与饱和模型对比来检测我们模型的最终效果，大致理论与方法在上一章GLM中已经介绍，具体差异如下：
+> ![image](https://user-images.githubusercontent.com/89850899/159159543-cdcfd124-2867-4b5b-9a67-40151ba41d69.png)
+
+其中，residual degrees of freedom (n − EDF) 代替了之前GLM中的模型自由度。 它需要从模型中提取，指令为 model$df.residual. 最后我们来进行LRT:
+> ![image](https://user-images.githubusercontent.com/89850899/159159649-fffcb274-77c9-4870-b40b-b9aa539f10f5.png)
+如果 P-value 大于 0.05，说明基于对应的lamda，我们的模型表现良好。
+
+最后，不同的GAM模型之间效果的比较主要通过一下三步来检测：
+- plot（）,这个指令在GAM中会画出smooth function 的结果， 可以通过它与原数据的图比较，直观的得出所应用的smooth function 的显著性
+- summary（）, 通过它得到模型中每个smooth function 的总结，以及相关参数的显著性
+- AIC()，通过它来最直接的对不同模型进行比较， AIC更小的模型表现更好，
 
 
 
