@@ -8,4 +8,4 @@
 
 >其中Y<sub>i</sub><sub>j</sub>是一系列的Response variable, 即共有j组Y，每组中有i个值。例如一个学校有j个班级，每个班级有i个学生。gamma 表示random effect
 
-式子（1）表示***在对应的random effect*** 下，response variable Y<sub>i</sub><sub>j</sub>
+式子（1）表示***在对应的random effect*** 下，response variable Y<sub>i</sub><sub>j</sub> 服从一个平均数为 mu<sub>j</sub>, 方差为sigma<sub>y</sub><sup>2</sup>的分布(即Y的方差)。式子（2）表示 conditional mean mu<sub>j</sub> 等于 intercept加上 random effect。 式子（3）表示 random effect 服从一个平均数为0，方差为 random effect 方差的正态分布。
