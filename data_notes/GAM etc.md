@@ -16,9 +16,55 @@
 
 一个简单的例子：假如我们想要调查某个connty在温度低于5度时的平均用水需求，在掌握了相关的数据后， 一个简易Additional模型可为；
 >![image](https://user-images.githubusercontent.com/89850899/159053991-3e963a19-6061-4bf5-83a9-3b0bf593bbc7.png)
+
 >其中，当温度高于/低于 5度时， 对应的 z = 0/1, f(x) 为smooth functiofunction，它允许了在除了已经应用covariate之外的response factor的波动， 从而能够给出我们一些潜在的取样建议。
 
-在加性模型中，我们需要特别关注对应smooth function的应用， 以及它的smooth程度。在R中通过应用**penalized regression splines** 来表示smooth function， 从而对基于数据进行**cross validation** 来得出合适的smooth程度。
+在加性模型中，我们需要特别关注对应smooth function的应用， 以及它的smooth程度。在R中通过应用**penalized regression splines** 来表示smooth function， 从而对基于数据进行**cross validation** 来得出合适的smooth程度。这方法的前提是选定一个合适的 ***basis function***：
+>![image](https://user-images.githubusercontent.com/89850899/159059978-3a55acd8-80f0-420e-91d8-9d545f179ad5.png)
+
+简易的例子是：
+>![image](https://user-images.githubusercontent.com/89850899/159060315-1f44dc5f-3c21-48d2-b8c1-c9acb815ccea.png)
+
+>其中are b1(x) = 1, b2(x) = x, b3(x) = x2...
+在 bs 中还有两个特别重要的参数， *K（knot）* 以及 *q（rank）* 。 K值可以理解为由smooth function画出来的线的peak的点的数量，也是function中参数的数量，而q就是k-1.
+
+#### **penalized regression splines**
+为了防止过拟合，GAM在最小二乘的方式上额外添加了一个‘wiggle coeffition’：
+> ![image](https://user-images.githubusercontent.com/89850899/159153702-8f0c9ca9-7e2b-4a2f-9cd4-c7607b8bfb01.png)
+
+>可以理解为最小二乘的值额外加上了一部分‘负担’，从而避免过拟合。 其中lamda就是smooth parameter,可以看到lamda越大，最后画出来的线就越接近一条直线，lamda越接近0，结果就越无限贴近元数据，即接近无意义的饱和模型的结果。
+
+前文还提到了通过*cross validation*来选出一个合适的lamda，而交叉验证本质上是一个数据子集（e.g 预测值）与原母数据集的偏离程度，为此我们需要估计一个理想的lamda值来最小化这个偏离程度。
+
+
+### 1.2 GAM in R
+GAM 在R中的应用基本上与GLM一致，一开始的模型参数指定：
+>![image](https://user-images.githubusercontent.com/89850899/159066383-e183a3d7-e598-4dc9-b801-9b871af9e31e.png)
+
+>其中K值/bs/familiy 的应用选择上可以根据情况改变。bs一般选择的是cubic spline，指令为**cs**。
+>![image](https://user-images.githubusercontent.com/89850899/159152808-d9d2d936-23a6-444d-8304-d27109d32a99.png)
+
+>相较于GLM模型的结果，GAM的结果包含两个部分，第一个部分是***Parametric coefficient***，即对模型中intercept参数的总结，第二个则是***Significance of smoothe terms***,展示了smooth function的结果。
+
+在之后的模型参数推断中， 根据上面得到的模型结果，可以分别得出估计的模型的方差，rank,smooth function 中的参数，lamda，具体操作可以参考如下：
+> ![image](https://user-images.githubusercontent.com/89850899/159154472-4881f84e-6486-47c8-b71c-809d42382236.png)
+
+模型预测的方法与GLM基本一致，之后我们可以进行模型检测：
+>![image](https://user-images.githubusercontent.com/89850899/159154571-6c5a1f18-e35f-4d3f-bc43-a60288643abc.png)
+
+检测的结果有两部分组成，第一部分为residual plot，其中一共有4张图，需要注意的是：
+- 左上角的 Q-Q plot， 如果模型表现良好的话，所有的残差点应该都沿着斜线分布
+- 右上角的 residuals vs the fitted values，对于一个优秀的模型，我们应该看到图中残差值均匀分布在0两侧，而不应该有其他任何趋势。
+- 左下角的 histogram of the residuals，它用来表示残差值是否服从正态分布。
+- 右下角的 response (Yi) versus the fitted/predicted values (Yˆi)，它与第一张图基本一致，对于一个合适的模型，残差点应沿斜线分布。
+
+
+在残差图之外，我们还有
+
+
+
+
+
 
 
 
