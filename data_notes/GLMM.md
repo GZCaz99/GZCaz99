@@ -13,3 +13,11 @@ random effect的引入主要有三点优势：
 - 相较于以前的直接估计参数的方式（这种方式对数据的依赖性较大，相同产生的不同数据可能会给出不同参数）， 加入 random effect 可以使得允许我们研究不同的参照组的结构性联系情况（eg,nested/hirachical），使得我们进行对比观测组更大的 population 的统计推断得以实现。
 - 通过 *pooling information* 在不同参照组内取样，能减少数据质量差异带来的误差， 同时也能减少模型的有效参数
 - Allow for unobserved factors by including random intercept for individual observations.
+
+假设我们有一个医学实验的数据集，其中Y<sub>i</sub><sub>j</sub>是病人，j=4 病人们被分为4组，每组的用药强度不一样，而我们想研究用药强度和症状的关系。对应的模型如下：
+>![image](https://user-images.githubusercontent.com/89850899/159235182-9c371616-4e0d-455e-a6ef-776a0de5bbbf.png)
+![image](https://user-images.githubusercontent.com/89850899/159235211-42307d21-922e-4d2f-8436-a8be2cd2abfb.png)
+
+>其中 βj为。fixed effect。β1 = 0 指第一组 x0为参照组没有用药。这样，对于每组的用药强度，我们可以应用一个简单的线性回归函数来得出对应的平均症状严重程度 mu。
+
+可以想到，当各种实验条件/变量在能够得到有效控制/统一的情况下， LM 函数更加方便。 但是现实中很难有这种理想情况，为了尽可能的得到贴近真实情况的推断结果，我们获取的数据也应该尽可能的发散，尽可能的包含所有潜在的因素，而这就导致random effect的引入。 上述例子更多可能发生在药企内部测试中，但当我们进行更高层面的社会实验时，假设我们这次将药品推广到在全市内随机抽取的20个诊所，除了药物本身对病人造成的影响外，结果还可能收到其他random effect的影响， 例如被选中的诊所的治疗对象：一个诊所面对重型糖尿病患者而另一家面对轻微糖尿病，这样同种药物的应用得出的结果也会不同，或者有些诊所的规模更大，应用的药物也就更多，我们得到的数据也就更多更客观 etc，这样，还是套用前面的式子 1-3， 这些random effect 就是gamma
