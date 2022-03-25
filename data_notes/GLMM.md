@@ -31,7 +31,13 @@ random effect的引入主要有三点优势：
 混合模型假设：
 - response 服从正态分布，相互独立，random effect 对应的conditional variance 应该相等。
 - random effect : 服从正态分布， 期望值（mu）为0，而方差不一定要相等
-在R中，
-GLMM 在R中需要使用 Lme4 package. 在R中，我们可以对模型中的所有参数添加random effect,比较常用的是添加 随机intercept/随机斜率。 Random intercept 可以理解为该组数据在采样时就有偏差，即整组水平要高于/低于其他组别的数据，差别体现在组/level上，而随机斜率则体现在
+在R中，模型分为两个部分， 第一个部分即是fixed effect, 表示总体的平均值，第二部分就是random effect. 简单来说， fixed 的部分就是 betas， 而random的部分就是 gamma。
+GLMM 的 response 预测则基于：
+- 固定效应
+- 随机效应
+而模型参数的估计则基于：
+- 固定效应
+- 随机效应的方差
+GLMM 在R中需要使用 Lme4 package. 在R中，我们可以对模型中的所有参数添加random effect,比较常用的是添加 随机intercept/随机斜率。 Random intercept 可以理解为该组数据在采样时就有偏差，即整组水平要高于/低于其他组别的数据，差别体现在组/level上，而随机斜率则体现在个体之间。
 
 
