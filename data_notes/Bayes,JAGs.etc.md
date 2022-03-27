@@ -8,6 +8,8 @@
 
 >![image](https://user-images.githubusercontent.com/89850899/160254136-c29899ea-4f36-486e-bd60-29970ff6f209.png)
 
+
+
 ## x, JAG 在 R 中的运用
 Monte Carlo 在R中的实现主要通过 JAGs（Just another Gibbs sampler） 实现, 为此我们首先需要安装一些相关package：
 > ![image](https://user-images.githubusercontent.com/89850899/158208344-e1e653d5-48f0-466a-9000-fcafa3553139.png)
@@ -22,4 +24,7 @@ MC chains - each gives a sequence of simulated values), n.iter (number of iterat
 process), n.burnin (number of initial samples to discard), model.file (the JAGS model definition).
 - 6，Convergence diagnostics
 - 7.Once we are satisfied that the chains have converged, we can start the statistical inference. 
+
+
+
 
