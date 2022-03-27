@@ -9,6 +9,22 @@
 >![image](https://user-images.githubusercontent.com/89850899/160254136-c29899ea-4f36-486e-bd60-29970ff6f209.png)
 
 
+### ***Prior distribution***
+***Prior*** 表示了我们在拥有可参考的数据前对模型/分布参数的不确定性,它可以被分为两种类型：
+- ***Informative Priors***: 指我们根据过往经历对事件发生概率/数据分布做出的推断。 比如根据相关领域专家的意见/过往实验数据等等
+- ***Vague Prior***s: 有些情况下我们想要 minimise 已知/先验的信息，这时便需要引进Vague（minimise） prior。 它可以理解为一个参数分布，这分布拥有很高的方差/不确定性，或者直接就是一个摆烂分布，即flat distribution（1，0）分布（它就是一条y=1的直线），即所有值都可能是需要我们估计的值。想象一个正态分布的图形，随着方差的上升，图形也会越来越矮/宽，这就是一个 vague prior 的分布。
+
+
+### Beta Distribution
+当我们需要一个反应proportion 的先验分布时， Beta Distribution: ***theta~Beta(a,b)*** 将被应用。 它是一个限制于 [0,1] 区间的分布函数。该分布参数如下：
+> ![image](https://user-images.githubusercontent.com/89850899/160300369-99f33ea2-2892-4b84-9691-2c74da85989f.png)
+
+>对于已知的先验概率/方差，我们将他们带入求出对应的a,b得到对应的Beta分布，这就是我们的先验分布。
+
+### Gamma Distribution
+Gamma distribution 大致上与beta分布一致， 只是它只被运用于非负的数据情况下。同样的，对于 Y~Gamma(a,b):
+>![image](https://user-images.githubusercontent.com/89850899/160300807-b177cd7c-bfa4-44c2-a3ca-f9d758e29179.png)
+
 
 ## x, JAG 在 R 中的运用
 Monte Carlo 在R中的实现主要通过 JAGs（Just another Gibbs sampler） 实现, 为此我们首先需要安装一些相关package：
