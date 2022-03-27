@@ -29,6 +29,10 @@ Gamma distribution 大致上与beta分布一致， 只是它只被运用于非�
 >Gamma 分布被用作反方差（精确度， 1/方差）， Poisson/Exponential 分布的参数等的先验分布。 亦常被用作 Skewed positive value 的取样分布。 Gamma（0.001，0.001）是一个很常用的positive parameter 的模糊先验分布。
 
 ### Preditive distribution
+预测分布指的是在观察了一定量的数据之后，结合之前的先验概率得出的对应 response variable 的分布。这也正是开篇时提到的过程，即不断结合/更新先验概率分布以及数据集来获得updated 预测分布，随着这更新次数的不断增加，预测分布就会越来愈趋近于真实分布。数学上为两者乘积的积分，表示为：
+> ![image](https://user-images.githubusercontent.com/89850899/160301974-6a7adfad-d7ba-4d1e-bfd1-fe354f6ba72c.png)
+
+>假设我们想要
 
 
 ## x, JAG 在 R 中的运用
