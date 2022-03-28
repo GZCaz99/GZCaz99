@@ -28,11 +28,17 @@ Gamma distribution 大致上与beta分布一致， 只是它只被运用于非�
 
 >Gamma 分布被用作反方差（精确度， 1/方差）， Poisson/Exponential 分布的参数等的先验分布。 亦常被用作 Skewed positive value 的取样分布。 Gamma（0.001，0.001）是一个很常用的positive parameter 的模糊先验分布。
 
-### Preditive distribution
+### Preditive/Posteriors distribution
 预测分布指的是在观察了一定量的数据之后，结合之前的先验概率得出的对应 response variable 的分布。这也正是开篇时提到的过程，即不断结合/更新先验概率分布以及数据集来获得updated 预测分布，随着这更新次数的不断增加，预测分布就会越来愈趋近于真实分布。数学上为两者乘积的积分，表示为：
 > ![image](https://user-images.githubusercontent.com/89850899/160301974-6a7adfad-d7ba-4d1e-bfd1-fe354f6ba72c.png)
 
->假设我们想要
+>假设我们想要研究一个未知硬币（不知道它扔出头的概率）在n次 toss 中，头朝上的次数Y。 在这个实验中， 数据将成 Binomial（theta，n）分布，应用的先验分布为 Beta（a,b）在这个例子中，我们的预测分布就是 Beta- binomial 分布， 该分布的概率函数就是对应的两个分布函数的乘积的积分。 相似的， 对于预测分布函数，我们也有 E(Y), 在这里就等于： na/(a+b), 本质上就是事件发生的次数乘以先验分布的期望值。
+
+得出了 后验分布后， 我们就可以进行对应的： Point/interval extimation, prediction, hypothesis test. 但有时对于非常复杂的模型/数据分布，后验分布几乎不趋近，这时我们就需要模拟来建立后验分布。创造模拟数据的核心是： **使得创造出的数据能够表示/服从对应的posterior distribution**。
+
+### BUGS and JAGS
+在知道数据/先验的分布情况时，我们可以根据对应的后验分布取样， 但有时数据/先验分布太过复杂，我们不知道它对应的后验分布，这时就需要应用 BUGS， 它是一种使用了 Gibbs sampling 的 贝叶斯推断算法， 其中一个非常常用的包就是 JAGS。
+
 
 
 ## x, JAG 在 R 中的运用
