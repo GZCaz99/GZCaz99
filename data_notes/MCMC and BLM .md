@@ -27,5 +27,9 @@ Gibbds smapling 是其中一种在MCMC中常用的后验取算法， 它的大�
 - 选择更好的initial values
 - 改变variables, 例如将covariate xi 转换成 （xi - mu），这一步称为 Centring. 或者 Standardizing, 即（xi - mu）/sigma。 这两种方式都可以有效帮助converge
 
-在
+在进行后验分布的取值时， 我们需要考虑所取smaple 是否有效， 即它是否足够‘独立’,在 R中可以通过观察 模型的 summary 中的 SD/Time-series SE 这两项来确定。通常来说， 如果Time-series SE 小于SD的 1-5%，那么sample就是有意义的。
+### MCMC inference 
+
+### Ranking
+
 
