@@ -32,5 +32,9 @@ AUC 经常被用以衡量不同分类器之间的表现。
 ### Multiple Logistic regression
 ![image](https://user-images.githubusercontent.com/89850899/162004173-67539b18-bc7a-4b10-a7d8-9bdbd248ca50.png)
 
+## LDA
+逻辑回归直接计算输入数据属于某类class的概率，而另一种没那么直接的方法是将输入数据分入各个class中， 在计算它在这一 class中的概率（在同一class中与其他数据的相似度）， 最后运用贝叶斯理论来获得数据属于某类class的概率， 这样的方法就叫做 Linear discriminant analysis (LDA). 相较于逻辑回归， 当我们有一个较多种类的class时，罗辑回归得到的参数估计在不同class之间会非常不稳定， 而 LDA 就不会受到影响。 此外当数据集较小且输入数据在各个class中大致呈正态分布时， LDA会比罗辑回归更稳定。具体理论如下：
+>![image](https://user-images.githubusercontent.com/89850899/162015985-99b9be95-7999-40a4-9c41-883c59f9bb10.png)
+
 
 
