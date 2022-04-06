@@ -35,6 +35,17 @@ AUC 经常被用以衡量不同分类器之间的表现。
 ## LDA
 逻辑回归直接计算输入数据属于某类class的概率，而另一种没那么直接的方法是将输入数据分入各个class中， 在计算它在这一 class中的概率（在同一class中与其他数据的相似度）， 最后运用贝叶斯理论来获得数据属于某类class的概率， 这样的方法就叫做 Linear discriminant analysis (LDA). 相较于逻辑回归， 当我们有一个较多种类的class时，罗辑回归得到的参数估计在不同class之间会非常不稳定， 而 LDA 就不会受到影响。 此外当数据集较小且输入数据在各个class中大致呈正态分布时， LDA会比罗辑回归更稳定。具体理论如下：
 >![image](https://user-images.githubusercontent.com/89850899/162015985-99b9be95-7999-40a4-9c41-883c59f9bb10.png)
+π
+总的来说， 估计 πk 相对容易，比如对于一个随机trainiing 样本集中我们只需要计算其中 X 属于某类class的比例，e.g 60% X 属于 Y1， 则π1 = 0.6 ...
+而估计likelihood则比较困难， 为此LDA做出如下假设， 来帮助我们求得likdelihood:
+>![image](https://user-images.githubusercontent.com/89850899/162069490-a61b8279-1b46-45dd-9f45-e57b8f909dca.png)
+
+### 1-dimension LDA
+>![image](https://user-images.githubusercontent.com/89850899/162070377-868c7e65-d8e7-4025-a258-e7861b487532.png)
+其中δk(x) = log(pk(x))
+
+### LDA extimates
+>![image](https://user-images.githubusercontent.com/89850899/162071372-0553cbe1-215c-4db4-9ac9-4fbc822e74c3.png)
 
 
 
