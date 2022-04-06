@@ -47,6 +47,18 @@ Error rate 表示了模型结果中误判的部分， 上式为train error rate,
 >![image](https://user-images.githubusercontent.com/89850899/161853458-6af94f2c-4ff0-4afe-b258-b60d481a9d9a.png)
 
 ## K-Nearest neighbour
+贝叶斯分类器的错误率是理论上的最少错误率，我们在现实中无法求的，但对与一个给定的数据集， 我们可以以它的贝叶斯错误率， 然后求出其他方法的错误率来与他比较。
+绝大多数的分类器都是通过模拟贝叶斯分类器， 即估计 conditional distribution of Y given X, 再将数据分配到属于机率最高的那一个 calss 中。其中一个常用的算法就是 KNN；
+- KNN 是一个拥有一定自由度到贝叶斯分类器估计算法
+- 对于任何已知的 X = xi， 我们在训练数据集中找到它的 K 个最近邻，再检测他们与对应的Y
+>![image](https://user-images.githubusercontent.com/89850899/161918463-a08e19a7-0cf3-4ab3-b1ab-52d6831b9224.png)
+
+
+当指定的K值越小。 对于给定数据集的分类程度就预告， 此时的分类器具有 low bias but very high variance.  随着k 的增加，decision boundary 就越趋于线性， 表现为一个low variance 分类器, but high bias. 
+
+## Summary
+![image](https://user-images.githubusercontent.com/89850899/161920358-1f5f917e-c48c-42e1-a09c-40acb55c7ad2.png)
+
 
 
 
