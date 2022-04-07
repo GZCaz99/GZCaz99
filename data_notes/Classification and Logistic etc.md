@@ -54,7 +54,7 @@ AUC 经常被用以衡量不同分类器之间的表现。
 QDA 与 LDA最大的不同在于假设class之间的方差不恒定， 即允许了class间方差的变化， 数学表达式如下：
 >![image](https://user-images.githubusercontent.com/89850899/162147466-d5e6bc19-dd20-4ce3-9cd5-9d38ea236a47.png)
 
-QDA 在
+QDA 在应用于class 之间方差不同的且数据量充足的数据集时最有效， 而LDA在class 之间 方差恒定， 且数据量不是非常充足时更有效。 总的来说， LDA更倾向于给出更低的方差和更高的bias.
 
 
 
