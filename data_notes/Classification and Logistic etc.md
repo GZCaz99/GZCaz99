@@ -47,5 +47,14 @@ AUC 经常被用以衡量不同分类器之间的表现。
 ### LDA extimates
 >![image](https://user-images.githubusercontent.com/89850899/162071372-0553cbe1-215c-4db4-9ac9-4fbc822e74c3.png)
 
+在求出各个参数的估计值后，我们得到 LDA 将输入数据分配到某个class中最大的概率：
+>![image](https://user-images.githubusercontent.com/89850899/162072259-8473c0ab-e208-469a-ace7-81d9bfbd62fd.png)
+
+### Quadratic discriminant analyisis
+QDA 与 LDA最大的不同在于假设class之间的方差不恒定， 即允许了class间方差的变化， 数学表达式如下：
+>![image](https://user-images.githubusercontent.com/89850899/162147466-d5e6bc19-dd20-4ce3-9cd5-9d38ea236a47.png)
+
+QDA 在
+
 
 
