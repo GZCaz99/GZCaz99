@@ -55,6 +55,11 @@
 
 #### 快速排序
 快速排序会在输入数列中设置一个 *pivot*, 之后再对比整个数列,并将比它大的input移到右边, 而比它小的移到左边, 形成一个 *smaller/pivot/bigger* 结构的数列, 之后再对pivot两边的子数列递归的重复上述步骤, 直到最后的子数列只剩下一个值, 再层层返回得到最终的已排序数列. 在该算法中pivot的选取是可自定义的,在下面的实现中则将每个数列中的第一个值设为pivot:
+>![1675211959145](https://user-images.githubusercontent.com/89850899/215916417-279c664d-03be-483b-b756-be19df1d4664.png)
+>代码的实现来自https://www.youtube.com/watch?v=duln2xAZhBA
+
+#### 记数排序
+
 
 
 
