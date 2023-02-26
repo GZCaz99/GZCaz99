@@ -7,3 +7,8 @@
 >![image](https://user-images.githubusercontent.com/89850899/221398728-a931a841-1ac0-4d67-afdd-bc817bb3262e.png)
 >![image](https://user-images.githubusercontent.com/89850899/221398735-0a2afd15-bdce-4daf-9a25-0e4f079c4d94.png)
 
+
+
+>![1677398097478](https://user-images.githubusercontent.com/89850899/221398888-d58c0a60-d977-4fe8-aa34-a4749b0ccb5c.png)
+
+>对于DECIMAL类,创建时需要输入
