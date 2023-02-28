@@ -52,6 +52,15 @@
 
 > ![1677494281995](https://user-images.githubusercontent.com/89850899/221541621-cc18bec1-47ad-477e-98d8-f50938255c9c.png)
 
+>![1677570214533](https://user-images.githubusercontent.com/89850899/221786732-765b72f1-2377-4bbb-884b-0d811ddad99c.png)
+>![1677570417242](https://user-images.githubusercontent.com/89850899/221787391-faf70879-fbab-4d5b-a45b-5e70f8e1a255.png)
+
+
+
+### DCL notes
+>![1677570606175](https://user-images.githubusercontent.com/89850899/221788015-82739e84-eaba-48f8-9e82-59e7f9adb780.png)
+> ![1677570892835](https://user-images.githubusercontent.com/89850899/221789018-93dd9db3-7a71-4fd8-97fe-bdc0dd955ac1.png)
+>![1677571412837](https://user-images.githubusercontent.com/89850899/221790883-a164a573-a650-40bc-bf8a-98c107d3c2a6.png)
 
 
 
