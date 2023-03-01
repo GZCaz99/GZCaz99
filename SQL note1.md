@@ -92,4 +92,8 @@
 >![1677597023811](https://user-images.githubusercontent.com/89850899/221894947-561ead09-046a-425f-80d8-fa993ccd2a8f.png)
 >![1677597499954](https://user-images.githubusercontent.com/89850899/221897065-1ff6767b-8604-4ac4-8417-b8b1dfc25f29.png)
 
+### 多表查询
+> ![1677649097976](https://user-images.githubusercontent.com/89850899/222054389-8f800f34-8469-4c63-9ab5-0feb17d365d1.png)
+> ![1677649158025](https://user-images.githubusercontent.com/89850899/222054559-e3ba5253-5c4a-417a-9c7b-62b9c43f736d.png)
+
 
