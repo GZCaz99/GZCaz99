@@ -63,4 +63,33 @@
 >![1677571412837](https://user-images.githubusercontent.com/89850899/221790883-a164a573-a650-40bc-bf8a-98c107d3c2a6.png)
 
 
+### 字符串函数
+>![1677588499867](https://user-images.githubusercontent.com/89850899/221858529-fc9e75b2-629f-4c1a-90e2-a602e0b52127.png)
+>![1677588542178](https://user-images.githubusercontent.com/89850899/221858602-311080a4-bb5e-4754-816a-520d57485851.png)
+
+
+### 数值函数
+>![1677588581430](https://user-images.githubusercontent.com/89850899/221858788-a872ba33-8dd7-40a5-aff9-f42e995a233d.png)
+>![1677589554030](https://user-images.githubusercontent.com/89850899/221862758-999b2407-fcfe-4a72-9908-60489074bdbe.png)
+
+
+### 日期函数
+>![1677589589243](https://user-images.githubusercontent.com/89850899/221862960-75a4306b-1096-475b-945d-90aa660547d9.png)
+>![1677592047060](https://user-images.githubusercontent.com/89850899/221872790-1a2891c4-c8af-4027-8d0b-133c9a4c6914.png)
+
+
+### 流程函数
+>![1677593762329](https://user-images.githubusercontent.com/89850899/221880044-71a02409-bd62-45cf-b08a-7431ecda357e.png)
+>![1677594175072](https://user-images.githubusercontent.com/89850899/221881807-ee563b51-eb45-401d-862a-67f9a40bc74b.png)
+
+
+### 约束
+>![1677594507908](https://user-images.githubusercontent.com/89850899/221883370-01d0b7ff-6815-438c-bb3d-033eee2680bd.png)
+>![1677595425467](https://user-images.githubusercontent.com/89850899/221887524-0d1e1b41-781a-49a0-97f3-93467505567d.png)
+>![1677595612285](https://user-images.githubusercontent.com/89850899/221888355-5065c7ed-2980-4366-919a-6c6e6909cde7.png)
+
+
+>![1677597023811](https://user-images.githubusercontent.com/89850899/221894947-561ead09-046a-425f-80d8-fa993ccd2a8f.png)
+>![1677597499954](https://user-images.githubusercontent.com/89850899/221897065-1ff6767b-8604-4ac4-8417-b8b1dfc25f29.png)
+
 
