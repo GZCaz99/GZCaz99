@@ -19,9 +19,7 @@
 >字符类数据中最常用的就是前两个， 其中定长表示： 不论输入字符有几个字节都是按设定长度，不够的空间就会补足， 例如 char（10） 表示输入一个10字节的字符， 但如果输入字符只有6个， 剩下4个字节就会自动补足到10个， 而varchar相反， 它只限定范围而不限定长度， 例如 varcher（10）只是设定了输入字符的长度上限。 所以在输入字符长度已知并且固定的情况下最好用char（）， 不知道输入字符长度是否固定时用varcahr（）更好
 
 >![1677490620445](https://user-images.githubusercontent.com/89850899/221527617-6a06a510-6aa2-4a33-9df2-eaf9194693cf.png)
-
 >![1677490723106](https://user-images.githubusercontent.com/89850899/221527995-55996a0e-450f-4249-a3c9-55b5ab2a5c5c.png)
-
 >![1677490746688](https://user-images.githubusercontent.com/89850899/221528080-4bd4860f-312a-43c3-88bb-0b48b79cda16.png)
 > ![1677490781959](https://user-images.githubusercontent.com/89850899/221528198-117d0aaf-1d5d-45e9-87d9-504c7ed8f0cc.png)
 
@@ -95,5 +93,43 @@
 ### 多表查询
 > ![1677649097976](https://user-images.githubusercontent.com/89850899/222054389-8f800f34-8469-4c63-9ab5-0feb17d365d1.png)
 > ![1677649158025](https://user-images.githubusercontent.com/89850899/222054559-e3ba5253-5c4a-417a-9c7b-62b9c43f736d.png)
+>![1677654479127](https://user-images.githubusercontent.com/89850899/222068459-edcb057a-d1ba-4d2d-b363-b12e47049ef4.png)
+
+
+多表查询
+>![1677670656049](https://user-images.githubusercontent.com/89850899/222128787-0434f8cb-9efe-4f5f-b77e-cebc6d8513b9.png)
+
+
+内连接
+>![1677671634733](https://user-images.githubusercontent.com/89850899/222132245-dcc755d1-aa09-4b2d-943b-1a9a189b4a87.png)
+>![1677671938889](https://user-images.githubusercontent.com/89850899/222133290-63ff0eb6-6811-41b3-80c6-230e9c8f4ba3.png)
+
+
+外连接
+>![1677672207336](https://user-images.githubusercontent.com/89850899/222134236-c9f4c5d6-02a3-4968-9974-91bad2c7bb85.png)
+>![1677672818574](https://user-images.githubusercontent.com/89850899/222136306-16ceaebb-8bfc-4ff6-8be7-8a1838e84f1c.png)
+
+自链接
+>![1677673231683](https://user-images.githubusercontent.com/89850899/222137732-a1d91814-45c7-4bf5-b262-3f59136d63d5.png)
+>![1677673213229](https://user-images.githubusercontent.com/89850899/222137669-f8a770b8-fa6b-4f15-b1da-9194b2de08a0.png)
+>![1677673302884](https://user-images.githubusercontent.com/89850899/222138001-bb13897e-9a13-4129-89c3-7efa25dbc65e.png)
+
+
+联合查询
+>![1677674193161](https://user-images.githubusercontent.com/89850899/222141233-760b51df-4f1f-4186-bd7a-68eeb094f0b8.png)
+>![1677674056167](https://user-images.githubusercontent.com/89850899/222140732-56b311c0-a414-4c74-8159-dec21fd8ff17.png)
+
+子查询
+>![1677674405257](https://user-images.githubusercontent.com/89850899/222142018-2d3cdbf2-6d90-41a0-b0e8-d8bfd0ce5f14.png)
+
+标量子查询
+>![1677675047123](https://user-images.githubusercontent.com/89850899/222144248-646addb6-b6fe-4791-8862-3fa888b378e5.png)
+>![1677675346644](https://user-images.githubusercontent.com/89850899/222145311-19c82487-e9b3-4619-bf43-fdba01e5639b.png)
+
+
+列子查询
+
+>![1677675655271](https://user-images.githubusercontent.com/89850899/222146431-ac28f9bc-f348-4de3-b098-b0c01e56084f.png)
+
 
 
