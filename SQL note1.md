@@ -128,8 +128,16 @@
 
 
 列子查询
-
+>![1677822075664](https://user-images.githubusercontent.com/89850899/222640718-79b1b724-028d-4fe9-94a0-c13359719e5d.png)
 >![1677675655271](https://user-images.githubusercontent.com/89850899/222146431-ac28f9bc-f348-4de3-b098-b0c01e56084f.png)
+>![1677822380066](https://user-images.githubusercontent.com/89850899/222641339-05c0ad27-fb59-425e-84fc-e7fef7bc68ad.png)
 
 
+行子查询
+>![1677823059123](https://user-images.githubusercontent.com/89850899/222642877-cda07547-c739-45b7-8795-97ed1ad8f759.png)
+>![1677823028530](https://user-images.githubusercontent.com/89850899/222642826-9dc1869b-d824-4f09-9a5c-8221c7b82291.png)
+
+
+表子查询
+>
 
