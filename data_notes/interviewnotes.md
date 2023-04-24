@@ -27,3 +27,10 @@
 
 > 行程问题：
 > https://zhuanlan.zhihu.com/p/415046799
+
+
+#### XGBoost
+> da
+
+
+> Stratification 数据分层
