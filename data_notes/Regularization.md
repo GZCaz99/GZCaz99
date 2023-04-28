@@ -6,4 +6,5 @@
 
 #### 1.2 Rigid regression 概念
 与上面的LR回归相似,在LR中目标是得到最小的 $R^2$ ,  而在 Rigid regression 中,目标则是找到最小的:  
+$$ $R^2$ + \lambda\times $\beta^2$ $$
 
