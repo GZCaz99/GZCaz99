@@ -5,6 +5,7 @@
     - df.head()/df.info()/df.describe()/df.display()..
     - 观察各特征列的类型
     - 观察缺失值情况,选择合适的填充方法或者直接去掉
+        - scikitlearn 中的 simple imputer 包
     - 观察各个特征列中每个值的分布情况
     - 观察label的分布情况
 
