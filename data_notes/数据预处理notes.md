@@ -23,12 +23,15 @@
   
   2. 特征工程
      - 特征编码
-          - polynomial/label/one-hot/mean encoding ...(特征工程中解释) 
+          - polynomial: 它是使用多项式的方法来进行的，如果有a，b两个特征，那么它的2次多项式为（1,a,b,a^2,ab, b^2）https://blog.csdn.net/xiaohutong1991/article/details/107945459
+          - /label/one-hot/mean encoding ...(特征工程中解释) 
      - 数值型特征:
           - 做对数log变换(train.SalePrice = np.loglp(train.SalePrice)) , 多项式扩展数值特征
             其实就是多项式编码
      - 分类特征:
-        - 二值化(binomial),用0/1代表不同类(e.g, iris 是个三分类数据集,但可以)
+        - 二值化(binomial),用0/1代表不同类(e.g, iris 是个三分类数据集,但可以用1来表示第一和第二类,用2来表示第三类)
+        - label encoder, 用有序数据对不连续的label 编号, e.g. iris中的花中类, vertosa 设为 3, sentosa 设为 2 ...
+        - one-hot encoding, 一般是多类label时用, 在数据集中创建一个新的df,有多少类这个数据就有多少维, e.g. 有6类数据, 200行, 维度就是6*200. 
 
 
 
