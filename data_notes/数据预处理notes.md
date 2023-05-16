@@ -6,6 +6,7 @@
         - 观察各特征列的类型
         - 观察缺失值情况,选择合适的填充方法或者直接去掉
             - scikitlearn 中的 simple imputer 包
+               > https://cloud.tencent.com/developer/article/1786924
             - LightGBM和XGBoost都能将NaN作为数据的一部分进行学习，所以不需要处理缺失值。
             - 直接删去(如果占比不多可以考虑,如果某一列的缺失值太多则考虑直接去掉)
             - 异常值(outlier), 观察最大/最小值, 3 $\sigma$ 原则, 箱型图、直方图（尾巴）、散点图（常用）, 方差（离目标远近程度，对噪声敏感）、分位图（0.5%~99.5%）四分位数间距：25%~75%之间的区间宽度。
@@ -14,6 +15,7 @@
             - 核密度估计: seaborn.violinplot/histplot...
             - correlation, 热点图
             - 观察label的分布情况: 如果df1中每个x对应一个label, df2中又对应另一个label.../根据项目中不同数据集的特点想办法合并成为一个训练集
+            - 对 Numerical Variable，可以用 Box Plot 来直观地查看它的分布。对于坐标类数据，可以用 Scatter Plot 来查看它们的分布趋势和是否有离群点的存在。对于分类问题，将数据根据 Label 的不同着不同的颜色绘制出来，这对 Feature 的构造很有帮助。
 
         - 数据预处理
             - from sklearn.preprocessing import ...
@@ -22,21 +24,12 @@
             - scaling:将一列的数值，除以这一列的最大绝对值。不免疫outlier。
                -  sklearn.preprocessing.MaxAbsScaler
                -  preprocessing.MinMaxScaler, 将属性缩放到一个指定的最大值和最小值(通常是1-0)之间,对于方差非常小的属性可以增强其稳定性
-            - normalization: sklearn.preprocessing.Normalizer
-               - 正则化的过程是将每个样本缩放到单位范数(每个样本的范数为1)，如果要使用如二次型(点积)或者其它核方法计算两个样本之间的相似性这个方法会很有用. Normalization主要思想是对每个样本计算其p-范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的p-范数(l1-norm,l2-norm)等于1。该方法是文本分类和聚类分析中经常使用的向量空间模型（Vector Space Model)的基础.Normalization主要思想是对每个样本计算其p-范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的p-范数(l1-norm,l2-norm)等于1。
+            - normalization归一化: sklearn.preprocessing.Normalizer
+               - 简而言之，归一化的**目的**就是使得预处理的数据被限定在一定的范围内（比如[0,1]或者[-1,1]），从而消除奇异样本数据导致的不良影响。归一化的**过程**是将每个样本缩放到单位范数(每个样本的范数为1)，如果要使用如二次型(点积)或者其它核方法计算两个样本之间的相似性这个方法会很有用. Normalization主要思想是对每个样本计算其p-范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的p-范数(l1-norm,l2-norm)等于1。该方法是文本分类和聚类分析中经常使用的向量空间模型（Vector Space Model)的基础.Normalization主要思想是对每个样本计算其p-范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的p-范数(l1-norm,l2-norm)等于1。
 
         
   
   2. 特征工程
-Feature Selection
-总的来说，我们应该生成尽量多的 Feature，相信 Model 能够挑出最有用的 Feature。但有时先做一遍 Feature Selection 也能带来一些好处：
-
-Feature 越少，训练越快。
-有些 Feature 之间可能存在线性关系，影响 Model 的性能。
-通过挑选出最重要的 Feature，可以将它们之间进行各种运算和操作的结果作为新的 Feature，可能带来意外的提高。
-Feature Selection 最实用的方法也就是看 Random Forest 训练完以后得到的 Feature Importance 了。其他有一些更复杂的算法在理论上更加 Robust，但是缺乏实用高效的实现，比如这个。从原理上来讲，增加 Random Forest 中树的数量可以在一定程度上加强其对于 Noisy Data 的 Robustness。
-
-看 Feature Importance 对于某些数据经过脱敏处理的比赛尤其重要。这可以免得你浪费大把时间在琢磨一个不重要的变量的意义上。
 
      - 特征编码
           - polynomial: 它是使用多项式的方法来进行的，如果有a，b两个特征，那么它的2次多项式为（1,a,b,a^2,ab, b^2）https://blog.csdn.net/xiaohutong1991/article/details/107945459
@@ -65,6 +58,16 @@ Feature Selection 最实用的方法也就是看 Random Forest 训练完以后�
 
 4.Data leakage issues 数据泄露问题
    - https://zhuanlan.zhihu.com/p/26444240
+ 
+5.
+
+6.
+7.
+8.
+9.
+10.
+11.
+
 
 
 
