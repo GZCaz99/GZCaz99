@@ -6,7 +6,7 @@
         - 观察各特征列的类型
         - 观察缺失值情况,选择合适的填充方法或者直接去掉
             - scikitlearn 中的 simple imputer 包
-            - xgboost 中自动处理
+            - LightGBM和XGBoost都能将NaN作为数据的一部分进行学习，所以不需要处理缺失值。
             - 直接删去(如果占比不多可以考虑,如果某一列的缺失值太多则考虑直接去掉)
             - 异常值(outlier), 观察最大/最小值, 3 $\sigma$ 原则, 箱型图、直方图（尾巴）、散点图（常用）, 方差（离目标远近程度，对噪声敏感）、分位图（0.5%~99.5%）四分位数间距：25%~75%之间的区间宽度。
 
@@ -17,7 +17,10 @@
 
         - 数据预处理
             - from sklearn.preprocessing import ...
-            - 1. 数据取值范围缩放: 数据标准化（Standardization）用到的多,数据归一化（Scaling）用的少,数据正规化（Normalization）
+            - 数据取值范围缩放: 数据标准化（Standardization）用到的多,数据归一化（Scaling）用的少,数据正规化（Normalization）
+            - Standardization: sklearn.preprocessing.StandardScaler,转换为Z-score，使数值特征列的算数平均为0，方差（以及标准差）为1。不免疫outlier。或者 如果数值特征列中存在数值极大或极小的outlier（通过EDA发现），应该使用更稳健（robust）的统计数据：用中位数而不是算术平均数，用分位数（quantile）而不是方差。这种标准化方法有一个重要的参数：（分位数下限，分位数上限），最好通过EDA的数据可视化确定。免疫outlier。(sklearn.preprocessing.RobustScaler)
+            - scaling:将一列的数值，除以这一列的最大绝对值。不免疫outlier。 sklearn.preprocessing.MaxAbsScaler
+            - normalization: sklearn.preprocessing.Normalizer
 
         
   
@@ -35,9 +38,20 @@
         - one-hot encoding, 一般是多类label/类之间没有顺序联系时用, 在数据集中创建一个新的df,有多少类这个数据就有多少维, e.g. 有6类数据, 200行, 维度就是6*200. 
         - meanencoding, 针对高基数类别特征的有监督编码,针对高基数类别特征的有监督编码。当一个类别特征列包括了极多不同类别时（如家庭地址，动辄上万）时，可以采用。优点：和独热编码相比，节省内存、减少算法计算时间、有效增强模型表现。
         - 在类别特征列里，有时会有一些类别，在训练集和测试集中总共只出现一次，例如特别偏僻的郊区地址。此时，保留其原有的自然数编码意义不大，不如将所有频数为1的类别合并到同一个新的类别下(e.g. rare ones)。注意：如果特征列的频数需要被当做一个新的特征加入数据集，请在上述合并之前提取出频数特征。
- 3. 
 
+3. 建立新特征
+   特征之间也可以进行操作来合成新特征,可能会产生更好效果:
+   - 单独特征列乘以一个常数（constant multiplication）或者加减一个常数：对于创造新的有用特征毫无用处；只能作为对已有特征的处理。
+   - 任何针对单独特征列的单调变换（如对数）：不适用于决策树类算法。对于决策树而言https://zhuanlan.zhihu.com/p/26444240
+   - 线性组合（linear combination）：仅适用于决策树以及基于决策树的ensemble（如gradient boosting, random forest），因为常见的axis-aligned split function不擅长捕获不同特征之间的相关性；不适用于SVM、线性回归、神经网络等。
+   - 比例特征（ratio feature）: 特征1/特质2 = 特征3 ...  绝对值/max/min...
+   - 同时利用pandas的groupby操作结合类别与数值特征, e.g.　mean(身高)group_by籍贯...  将这种方法和线性组合等基础特征工程方法结合（仅用于决策树），可以得到更多有意义的特征
+   - 提取决策树中生成的向量作为新特征:
+      - 在决策树系列的算法中（单棵决策树、gbdt、随机森林），每一个样本都会被映射到决策树的一片叶子上。因此，我们可以把样本经过每一棵决策树映射后的index（自然数）或one-hot-vector（哑编码得到的稀疏矢量）作为一项新的特征，加入到模型中。具体实现：apply()以及decision_path()方法，在scikit-learn和xgboost里都可以用。
+   - 树类模型的ensemble: spearman correlation coefficient    /   线性模型、SVM、神经网络: 对数（log）,pearson correlation coefficient
 
+4.Data leakage issues 数据泄露问题
+   - https://zhuanlan.zhihu.com/p/26444240
 
 
 
