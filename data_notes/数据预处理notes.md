@@ -19,12 +19,25 @@
             - from sklearn.preprocessing import ...
             - 数据取值范围缩放: 数据标准化（Standardization）用到的多,数据归一化（Scaling）用的少,数据正规化（Normalization）
             - Standardization: sklearn.preprocessing.StandardScaler,转换为Z-score，使数值特征列的算数平均为0，方差（以及标准差）为1。不免疫outlier。或者 如果数值特征列中存在数值极大或极小的outlier（通过EDA发现），应该使用更稳健（robust）的统计数据：用中位数而不是算术平均数，用分位数（quantile）而不是方差。这种标准化方法有一个重要的参数：（分位数下限，分位数上限），最好通过EDA的数据可视化确定。免疫outlier。(sklearn.preprocessing.RobustScaler)
-            - scaling:将一列的数值，除以这一列的最大绝对值。不免疫outlier。 sklearn.preprocessing.MaxAbsScaler
+            - scaling:将一列的数值，除以这一列的最大绝对值。不免疫outlier。
+               -  sklearn.preprocessing.MaxAbsScaler
+               -  preprocessing.MinMaxScaler, 将属性缩放到一个指定的最大值和最小值(通常是1-0)之间,对于方差非常小的属性可以增强其稳定性
             - normalization: sklearn.preprocessing.Normalizer
+               - 正则化的过程是将每个样本缩放到单位范数(每个样本的范数为1)，如果要使用如二次型(点积)或者其它核方法计算两个样本之间的相似性这个方法会很有用. Normalization主要思想是对每个样本计算其p-范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的p-范数(l1-norm,l2-norm)等于1。该方法是文本分类和聚类分析中经常使用的向量空间模型（Vector Space Model)的基础.Normalization主要思想是对每个样本计算其p-范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的p-范数(l1-norm,l2-norm)等于1。
 
         
   
   2. 特征工程
+Feature Selection
+总的来说，我们应该生成尽量多的 Feature，相信 Model 能够挑出最有用的 Feature。但有时先做一遍 Feature Selection 也能带来一些好处：
+
+Feature 越少，训练越快。
+有些 Feature 之间可能存在线性关系，影响 Model 的性能。
+通过挑选出最重要的 Feature，可以将它们之间进行各种运算和操作的结果作为新的 Feature，可能带来意外的提高。
+Feature Selection 最实用的方法也就是看 Random Forest 训练完以后得到的 Feature Importance 了。其他有一些更复杂的算法在理论上更加 Robust，但是缺乏实用高效的实现，比如这个。从原理上来讲，增加 Random Forest 中树的数量可以在一定程度上加强其对于 Noisy Data 的 Robustness。
+
+看 Feature Importance 对于某些数据经过脱敏处理的比赛尤其重要。这可以免得你浪费大把时间在琢磨一个不重要的变量的意义上。
+
      - 特征编码
           - polynomial: 它是使用多项式的方法来进行的，如果有a，b两个特征，那么它的2次多项式为（1,a,b,a^2,ab, b^2）https://blog.csdn.net/xiaohutong1991/article/details/107945459
           
