@@ -12,13 +12,16 @@
             - 异常值(outlier), 观察最大/最小值, 3 $\sigma$ 原则, 箱型图、直方图（尾巴）、散点图（常用）, 方差（离目标远近程度，对噪声敏感）、分位图（0.5%~99.5%）四分位数间距：25%~75%之间的区间宽度。
 
         - 观察各个特征列中值的分布情况
+            
             - 核密度估计: seaborn.violinplot/histplot...
+            - 单个特征：连续性、分布情况，包括偏度（skewness）和峰度（kurtosis）/ 多个特征:可以简单回归一下
             - correlation, 热点图
             - 观察label的分布情况: 如果df1中每个x对应一个label, df2中又对应另一个label.../根据项目中不同数据集的特点想办法合并成为一个训练集
             - 对 Numerical Variable，可以用 Box Plot 来直观地查看它的分布。对于坐标类数据，可以用 Scatter Plot 来查看它们的分布趋势和是否有离群点的存在。对于分类问题，将数据根据 Label 的不同着不同的颜色绘制出来，这对 Feature 的构造很有帮助。
 
         - 数据预处理
             - from sklearn.preprocessing import ...
+            - 探索数据的统计信息，最值、四分位数、均值、方差
             - 数据取值范围缩放: 数据标准化（Standardization）用到的多,数据归一化（Scaling）用的少,数据正规化（Normalization）
             - Standardization: sklearn.preprocessing.StandardScaler,转换为Z-score，使数值特征列的算数平均为0，方差（以及标准差）为1。不免疫outlier。或者 如果数值特征列中存在数值极大或极小的outlier（通过EDA发现），应该使用更稳健（robust）的统计数据：用中位数而不是算术平均数，用分位数（quantile）而不是方差。这种标准化方法有一个重要的参数：（分位数下限，分位数上限），最好通过EDA的数据可视化确定。免疫outlier。(sklearn.preprocessing.RobustScaler)
             - scaling:将一列的数值，除以这一列的最大绝对值。不免疫outlier。
