@@ -50,6 +50,7 @@ from sklearn.decomposition import PCA
 
 ## 以下模型往往在性能上稍逊一筹，但是很适合作为 Ensemble 的 Base Model
 #### SVM
+> https://tengzi-will.github.io/2019/04/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA-SVM/
 #### Neural Networks
 #### Logistic Regression
 #### Linear Regression
