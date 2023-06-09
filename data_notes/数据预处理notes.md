@@ -133,6 +133,7 @@
 7. 参考资料
    - https://developer.aliyun.com/article/857312?spm=5176.26934562.main.8.607b5c00iLaDLZ 一个发电厂收入分析的例子, 比较详细的给出了从头到尾的各种决策及代码样例, 非常有价值
    - https://mp.weixin.qq.com/s/AfSG23U76N3OT7iElLPQTQ   特征选择的一篇总结性博文, 结构性的总结了所有基本的特征选择的概念/理论
+   - https://www.cnblogs.com/jasonfreak/p/5448385.html   同样的一篇总结博文,非常实用
 9.
 10.
 11.
