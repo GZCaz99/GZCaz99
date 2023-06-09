@@ -40,7 +40,8 @@
 ### Cross Validation
 Cross Validation 是非常重要的一个环节。它让你知道你的 Model 有没有 Overfit，是不是真的能够 Generalize 到测试集上。在很多比赛中 Public LB 都会因为这样那样的原因而不可靠。当你改进了 Feature 或是 Model 得到了一个更高的 CV 结果，提交之后得到的 LB 结果却变差了，一般认为这时应该相信 CV 的结果。当然，最理想的情况是多种不同的 CV 方法得到的结果和 LB 同时提高，但这样的比赛并不是太多。在数据的分布比较随机均衡的情况下，5-Fold CV 一般就足够了。如果不放心，可以提到 10-Fold。但是 Fold 越多训练也就会越慢，需要根据实际情况进行取舍。
 
-
+### Performence metrics
+对于标签不平衡的数据集,用 *Macro F1* , *AUC*, *Average precision score (AP)*, *G-Mean* 来评估模型参数更合理
 
 ### PCA 降维
 from sklearn.decomposition import PCA
@@ -53,4 +54,6 @@ from sklearn.decomposition import PCA
 > https://tengzi-will.github.io/2019/04/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA-SVM/
 #### Neural Networks
 #### Logistic Regression
+- VIF:
+  - https://www.investopedia.com/terms/v/variance-inflation-factor.asp
 #### Linear Regression
