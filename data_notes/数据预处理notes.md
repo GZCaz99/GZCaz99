@@ -45,7 +45,7 @@
 
      - 特征编码
           - polynomial: 它是使用多项式的方法来进行的，如果有a，b两个特征，那么它的2次多项式为（1,a,b,a^2,ab, b^2）https://blog.csdn.net/xiaohutong1991/article/details/107945459
-       
+          - https://blog.csdn.net/weixin_38002569/article/details/83095512
      - 数值型特征:
           - 做对数log变换(train.SalePrice = np.loglp(train.SalePrice)) , 多项式扩展数值特征
             其实就是多项式编码
