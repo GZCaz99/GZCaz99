@@ -117,6 +117,7 @@
 
 
 6. 集成学习Ensemble Method
+   - https://easyaitech.medium.com/%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0-%E8%AF%A6%E8%A7%A3-bagging-boosting-%E4%BB%A5%E5%8F%8A%E4%BB%96%E4%BB%AC%E7%9A%84-4-%E7%82%B9%E5%8C%BA%E5%88%AB-6e3c72df05b8
    - 集成学习方法是指组合多个模型，以获得更好的效果，使集成的模型具有更强的泛化能力。Ensemble Learning 是指将多个不同的 Base Model 组合成一个 Ensemble Model 的方法。它可以同时降低最终模型的 Bias 和 Variance从而在提高分数的同时又降低 Overfitting 的风险。在现在的 Kaggle 比赛中要不用 Ensemble 就拿到奖金几乎是不可能的。
       - 在验证集上找表现最好的模型
       - 强可学习和弱可学习
@@ -130,7 +131,7 @@
          - Base Model 之间的性能表现不能差距太大。这其实是一个 Trade-off，在实际中很有可能表现相近的 Model 只有寥寥几个而且它们之间相关性还不低。但是实践告诉我们即使在这种情况下 Ensemble 还是能大幅提高成绩。
          
 
-7. 参考资料
+8. 参考资料
    - https://developer.aliyun.com/article/857312?spm=5176.26934562.main.8.607b5c00iLaDLZ 一个发电厂收入分析的例子, 比较详细的给出了从头到尾的各种决策及代码样例, 非常有价值
    - https://mp.weixin.qq.com/s/AfSG23U76N3OT7iElLPQTQ   特征选择的一篇总结性博文, 结构性的总结了所有基本的特征选择的概念/理论
    - https://www.cnblogs.com/jasonfreak/p/5448385.html   同样的一篇总结博文,非常实用
