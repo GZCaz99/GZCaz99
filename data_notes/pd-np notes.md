@@ -1,3 +1,5 @@
-## Pandas notes
-some of the useful pd notes collected in work:
-  - 
+## Pandas notes  
+some of the useful pd methods picked up in work:
+- 
+
+
