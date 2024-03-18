@@ -33,6 +33,10 @@ some pandas/np notes picked up in work:
                       - verify_integrity ，是否忽视重复index， 当两个df有重复的dx时是否报错
                       - axis ， 一般默认是上下拼接， 单有时也会遇到需要左右拼接的情况，这时候就需要设置 axis = 1
                       - keys/names, 输入合并的df名，这样输出后可以看到拼接后的df中各部分的来源， eg.: pd.concat([df1,df2],names = ['df1','df2'])
+
+-         工作中遇到的：
+                - 
+
       
   
 
